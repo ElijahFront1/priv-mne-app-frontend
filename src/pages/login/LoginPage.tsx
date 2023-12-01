@@ -1,14 +1,50 @@
 import { Button, TextField, Link, Box, Typography } from '@mui/material';
-import { Form, Formik } from 'formik';
+import { useFormik } from 'formik';
 import { Link as RouterLink } from 'react-router-dom';
-import { object, string } from 'yup';
+import * as Yup from 'yup';
+import { string } from 'yup';
 import { sessionModel } from '~entities/session';
 import { useLoginUser } from '~features/session';
 import { PATH_PAGE } from '~shared/lib/react-router';
 import { ErrorHandler } from '~shared/ui/error-handler';
 
+const validationSchema = Yup.object().shape({
+    email: string()
+        .email('Invalid email address')
+        .required('Email is required'),
+    password: string()
+        .min(5, 'Password must be at least 5 characters long')
+        .required('Password is required'),
+});
+
 export function LoginPage() {
     const { mutate, isError, error } = useLoginUser();
+
+    const {
+        values: { email, password },
+        handleChange,
+        handleSubmit,
+        touched,
+        errors,
+    } = useFormik({
+        initialValues: {
+            email: '',
+            password: '',
+        },
+        validationSchema,
+        onSubmit: (values, { setSubmitting }) => {
+            mutate(values, {
+                onSuccess: response => {
+                    console.log(response);
+                    // @ts-ignore
+                    sessionModel.addUser(response);
+                },
+                onSettled: () => {
+                    setSubmitting(false);
+                },
+            });
+        },
+    });
 
     return (
         <Box
@@ -29,76 +65,44 @@ export function LoginPage() {
                     Need an account?
                 </Link>
 
-                {isError && <ErrorHandler error={error!} />}
+                {isError && <ErrorHandler error={error!}/>}
 
-                <Formik
-                    initialValues={{
-                        email: '',
-                        password: '',
-                    }}
-                    validationSchema={object().shape({
-                        email: string()
-                            .email('Invalid email address')
-                            .required('Email is required'),
-                        password: string()
-                            .min(
-                                5,
-                                'Password must be at least 5 characters long',
-                            )
-                            .required('Password is required'),
-                    })}
-                    onSubmit={(values, { setSubmitting }) => {
-                        mutate(values, {
-                            onSuccess: response => {
-                                sessionModel.addUser(response.data.user);
-                            },
-                            onSettled: () => {
-                                setSubmitting(false);
-                            },
-                        });
-                    }}>
-                    {({ isSubmitting, touched, errors }) => (
-                        <Form>
-                            <TextField
-                                margin="normal"
-                                required
-                                fullWidth
-                                id="email"
-                                label="Email Address"
-                                name="email"
-                                autoComplete="email"
-                                autoFocus
-                                helperText={touched.email ? errors.email : ''}
-                                error={touched.email && Boolean(errors.email)}
-                            />
-                            <TextField
-                                margin="normal"
-                                required
-                                fullWidth
-                                name="password"
-                                label="Password"
-                                type="password"
-                                id="password"
-                                autoComplete="current-password"
-                                helperText={
-                                    touched.password ? errors.password : ''
-                                }
-                                error={
-                                    touched.password && Boolean(errors.password)
-                                }
-                            />
-                            <Button
-                                size="large"
-                                type="submit"
-                                fullWidth
-                                variant="contained"
-                                sx={{ mt: 3, mb: 2 }}
-                                disabled={isSubmitting}>
-                                Sign In
-                            </Button>
-                        </Form>
-                    )}
-                </Formik>
+                <form onSubmit={handleSubmit}>
+                    <TextField
+                        margin="normal"
+                        required
+                        fullWidth
+                        id="email"
+                        label="Email Address"
+                        name="email"
+                        autoComplete="email"
+                        helperText={touched.email ? errors.email : ''}
+                        error={touched.email && Boolean(errors.email)}
+                        onChange={handleChange}
+                        value={email}
+                    />
+                    <TextField
+                        margin="normal"
+                        required
+                        fullWidth
+                        id="password"
+                        label="password"
+                        name="password"
+                        autoComplete="password"
+                        helperText={touched.password ? errors.password : ''}
+                        error={touched.password && Boolean(errors.password)}
+                        onChange={handleChange}
+                        value={password}
+                    />
+                    <Button
+                        color="primary"
+                        variant="contained"
+                        fullWidth
+                        type="submit"
+                        size="large">
+                        Sign In
+                    </Button>
+                </form>
             </Box>
         </Box>
     );

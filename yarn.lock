@@ -1607,6 +1607,15 @@ axe-core@^4.3.5:
   resolved "https://registry.npmjs.org/axe-core/-/axe-core-4.7.2.tgz"
   integrity sha512-zIURGIS1E1Q4pcrMjp+nnEh+16G56eG/MUllJH8yEvw7asDo7Ac9uhC9KIH5jzpITueEZolfYglnCGIuSBz39g==
 
+axios@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-1.6.0.tgz#f1e5292f26b2fd5c2e66876adc5b06cdbd7d2102"
+  integrity sha512-EZ1DYihju9pwVB+jg67ogm+Tmqc6JmhamRN6I4Zt8DfZu5lbcQGw3ozH9lFejSJgs/ibaef3A9PMXPLeefFGJg==
+  dependencies:
+    follow-redirects "^1.15.0"
+    form-data "^4.0.0"
+    proxy-from-env "^1.1.0"
+
 axobject-query@^2.2.0:
   version "2.2.0"
   resolved "https://registry.npmjs.org/axobject-query/-/axobject-query-2.2.0.tgz"
@@ -2847,6 +2856,11 @@ flatted@^3.1.0:
   resolved "https://registry.npmjs.org/flatted/-/flatted-3.2.7.tgz"
   integrity sha512-5nqDSxl8nn5BSNxyR3n4I6eDmbolI6WT+QqR547RwxQapgjQBmtktdP+HTBb/a/zLsbzERTONyUB5pefh5TtjQ==
 
+follow-redirects@^1.15.0:
+  version "1.15.3"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.3.tgz#fe2f3ef2690afce7e82ed0b44db08165b207123a"
+  integrity sha512-1VzOtuEM8pC9SFU1E+8KfTjZyMztRsgEfwQl44z8A25uy13jSzTj6dyK2Df52iV0vgHCfBwLhDWevLn95w5v6Q==
+
 for-each@^0.3.3:
   version "0.3.3"
   resolved "https://registry.npmjs.org/for-each/-/for-each-0.3.3.tgz"
@@ -4060,6 +4074,35 @@ mlly@^1.2.0:
     pkg-types "^1.0.3"
     ufo "^1.1.2"
 
+mobx-persist-store@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/mobx-persist-store/-/mobx-persist-store-1.1.3.tgz#2433731601cde7e5bb65318b4dbfcabd42d92584"
+  integrity sha512-P5B4CNCgAlKZ5dLqwcKYx9qmSc2b53iQTBKkH//7bXzgbsg0+bG4LJ0rPeIx/8/J5lduzqC7/oT+kuNaeHMMqQ==
+
+mobx-react-lite@^4.0.4:
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/mobx-react-lite/-/mobx-react-lite-4.0.5.tgz#e2cb98f813e118917bcc463638f5bf6ea053a67b"
+  integrity sha512-StfB2wxE8imKj1f6T8WWPf4lVMx3cYH9Iy60bbKXEs21+HQ4tvvfIBZfSmMXgQAefi8xYEwQIz4GN9s0d2h7dg==
+  dependencies:
+    use-sync-external-store "^1.2.0"
+
+mobx-react@^9.0.1:
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/mobx-react/-/mobx-react-9.0.1.tgz#f03fd8a2f009af260971a558acc29c0e04808e26"
+  integrity sha512-0idiElBgNMJg20YqGgHvYEnlqIJpPDQaOkxj2dHJIZeqCvUh+zBkBkMkpUFw/uEd1OdPUvT0y+AFBqsWIUAXww==
+  dependencies:
+    mobx-react-lite "^4.0.4"
+
+mobx@^6.10.2:
+  version "6.10.2"
+  resolved "https://registry.yarnpkg.com/mobx/-/mobx-6.10.2.tgz#96e123deef140750360ca9a5b02a8b91fbffd4d9"
+  integrity sha512-B1UGC3ieK3boCjnMEcZSwxqRDMdzX65H/8zOHbuTY8ZhvrIjTUoLRR2TP2bPqIgYRfb3+dUigu8yMZufNjn0LQ==
+
+moment@^2.29.4:
+  version "2.29.4"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.4.tgz#3dbe052889fe7c1b2ed966fcb3a77328964ef108"
+  integrity sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==
+
 mri@^1.1.5:
   version "1.2.0"
   resolved "https://registry.npmjs.org/mri/-/mri-1.2.0.tgz"
@@ -4574,6 +4617,11 @@ property-expr@^2.0.5:
   version "2.0.5"
   resolved "https://registry.npmjs.org/property-expr/-/property-expr-2.0.5.tgz"
   integrity sha512-IJUkICM5dP5znhCckHSv30Q4b5/JA5enCtkRHYaOVOAocnH/1BQEYTC5NMfT3AVl/iXKdr3aqQbQn9DxyWknwA==
+
+proxy-from-env@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/proxy-from-env/-/proxy-from-env-1.1.0.tgz#e102f16ca355424865755d2c9e8ea4f24d58c3e2"
+  integrity sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==
 
 psl@^1.1.33:
   version "1.9.0"
@@ -5909,10 +5957,10 @@ yocto-queue@^1.0.0:
   resolved "https://registry.npmjs.org/yocto-queue/-/yocto-queue-1.0.0.tgz"
   integrity sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==
 
-yup@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.npmjs.org/yup/-/yup-1.2.0.tgz"
-  integrity sha512-PPqYKSAXjpRCgLgLKVGPA33v5c/WgEx3wi6NFjIiegz90zSwyMpvTFp/uGcVnnbx6to28pgnzp/q8ih3QRjLMQ==
+yup@^1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/yup/-/yup-1.3.2.tgz#afffc458f1513ed386e6aaf4bcaa4e67a9e270dc"
+  integrity sha512-6KCM971iQtJ+/KUaHdrhVr2LDkfhBtFPRnsG1P8F4q3uUVQ2RfEM9xekpha9aA4GXWJevjM10eDcPQ1FfWlmaQ==
   dependencies:
     property-expr "^2.0.5"
     tiny-case "^1.0.3"
